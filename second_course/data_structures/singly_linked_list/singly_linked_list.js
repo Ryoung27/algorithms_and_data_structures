@@ -27,8 +27,36 @@ class SinglyLinkedList{
         }
         this.length++;
         return this;
-}
 
+
+    }
+
+    pop(val){
+        const node = Node(val)
+        if (!this.head) {
+            return undefined;
+        }else if(this.head === this.tail){
+            this.head = null;
+            this.tail = null;
+            this.length = 0;
+            return val
+        }
+        else{
+        let current = this.head;
+        let secondToLastNode;
+        while(current){
+            if(current.next === this.tail){
+                secondToLastNode = current;
+                break;
+            }
+            current = current.next;
+        }
+        secondToLastNode.next = null;
+        this.tail = secondToLastNode;
+        this.length--;
+        return nodeToRemove
+    }
+}
 
 
 // push(value) {
