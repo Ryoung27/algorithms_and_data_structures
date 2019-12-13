@@ -42,13 +42,13 @@ class SinglyLinkedList{
             return val
         }
         else{
-        let current = this.head;
-        let secondToLastNode;
-        while(current){
-            if(current.next === this.tail){
-                secondToLastNode = current;
-                break;
-            }
+            let current = this.head;
+            let secondToLastNode;
+            while(current){
+                if(current.next === this.tail){
+                    secondToLastNode = current;
+                    break;
+                }
             current = current.next;
         }
         secondToLastNode.next = null;
@@ -58,6 +58,39 @@ class SinglyLinkedList{
     }
 }
 
+    iPop(val){
+        if(!this.head) return undefined;
+        let current = this.head;
+        let newTail = current;
+        while(current.next){
+            newTail = current;
+            current = current.next;
+        }
+        this.tail = newTail;
+        this.tail.next = null;
+        this.length--;
+        if(this.length == 0){
+            this.head = null;
+            this.tail = null;
+        }
+        return current;
+    }
+
+    shift(){
+        if(!this.head) return undefined;
+        if(this.head === this.tail){
+            this.head = null;
+            this.tail = null;
+            this.length = 0;
+        }else{
+            let currentHead = this.head;
+            this.head = currentHead.next;
+            this.length--;
+            return currentHead;
+        }
+
+    }
+}
 
 // push(value) {
 //     const node = Node(value);
