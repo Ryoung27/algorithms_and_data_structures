@@ -138,6 +138,18 @@ class SinglyLinkedList{
         }
     }
 
+    remove(index){
+        if(index < 0 || index > this.length) return undefined;
+        if(index === length){
+            this.shift();
+        }
+        let previousNode = this.get(index -1);
+        let removed = previousNode.next;
+        previousNode.next = removed.next;
+        this.length--;
+        return removed;
+    }
+
 }
 
 // push(value) {
