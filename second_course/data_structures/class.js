@@ -7,7 +7,7 @@ class Student{
     }
     markLate(){
         this.tardies += 1;
-        return `${this.firstName} ${this.lastName} has been late ${this.tardies} number of times`
+        return `${this.firstName} ${this.lastName} has been late ${this.tardies} number of times.`
     }
 }
 
