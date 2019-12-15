@@ -50,10 +50,11 @@ class DoublyLinkedList{
             this.tail = null;
             this.prev = null;
             this.length = 0;
+        }else{
+            this.head = oldHead.next;
+            this.head.prev = null;
+            oldHead.next = null
         }
-        this.head = oldHead.next;
-        this.head.prev = null;
-        oldHead.next = null
         this.length--;
         return oldHead;
     }
